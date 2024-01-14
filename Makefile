@@ -30,3 +30,12 @@ flush-db:
 
 flush-db-with-seeding:
 	docker exec php /bin/sh -c "php artisan migrate:fresh --seed"
+
+.PHONY: artisan
+
+artisan:
+    docker-compose exec php php artisan
+
+make-model:
+    $(MAKE) artisan
+    docker-compose exec php php artisan make:model $(MODEL_NAME) -m
