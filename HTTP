@@ -1,0 +1,13 @@
+### GET HTTP REQUEST ###
+GET http://localhost:8001/greeting
+
+### POST A NEW PRODUCT BY NAME ###
+POST http://localhost:8001/api/products
+Content-Type: application/json
+
+{
+    "name": "Product 1"
+}
+
+### GET ALL PRODUCTS ###
+GET http://localhost:8001/api/products
