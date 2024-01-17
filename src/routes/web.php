@@ -19,6 +19,13 @@ Route::get("/", function () {
     return view("welcome");
 });
 
+// User routes
+Route::post('/api/users', [UserController::class, 'store']);
+Route::delete('/api/users/{id}', [UserController::class, 'destroy']);
+Route::put('/api/users/{id}', [UserController::class, 'update']);
+Route::get('/api/users', [UserController::class, 'index']);
+Route::get('/api/users/{id}', [UserController::class, 'show']);
+
 // Product routes
 Route::post('/api/products', [ProductController::class, 'store']);
 Route::delete('/api/products/{id}', [ProductController::class, 'destroy']);

@@ -61,7 +61,6 @@ show-model:
 	# Show a model using artisan make:model command
 	docker-compose exec php php artisan model:show $(MODEL_NAME)
 
-# Example: make artisan-migration MIGRATION=Test TABLE=test
 artisan-migration:
 	docker-compose exec php php artisan make:migration $(MIGRATION) --create=$(TABLE)
 
