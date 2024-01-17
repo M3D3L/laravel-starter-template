@@ -16,11 +16,11 @@ run-app-with-setup-db:
 	# Install dependencies, set permissions, generate application key, and run migrations with seeding
 	docker exec php /bin/sh -c "composer install && chmod -R 777 storage && php artisan key:generate && php artisan migrate:fresh --seed"
 
-run-app:
+up:
 	# Start the Docker containers
 	docker compose up -d
 
-kill-app:
+down:
 	# Stop and remove the Docker containers
 	docker compose down
 
@@ -64,3 +64,7 @@ show-model:
 # Example: make artisan-migration MIGRATION=Test TABLE=test
 artisan-migration:
 	docker-compose exec php php artisan make:migration $(MIGRATION) --create=$(TABLE)
+
+controller:
+	# Execute the 'php artisan' command in the PHP container
+	docker-compose exec php php artisan make:controller $(CONTROLLER_NAME) --api
